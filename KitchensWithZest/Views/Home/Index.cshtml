@@ -1,0 +1,220 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Styles.Render("~/Content/home.css")
+@Styles.Render("~/Content/gallery.css")
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="~/Images/005.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/Images/002.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/Images/003.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/Images/004.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="~/Images/005.jpg" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="dots" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
+
+
+</div>
+<br>
+
+
+<script>
+
+    var slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n) {
+        clearInterval(timer);
+
+
+
+        showSlides(slideIndex += n - 1);
+
+
+    }
+
+    function currentSlide(n) {
+        clearInterval(timer);
+        showSlides(slideIndex = n - 1);
+    }
+
+    var timer;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        if (slideIndex < 1) { slideIndex = slides.length }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        timer = setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
+
+<div class="content">
+    <h1>Welcome to Kitchens with Zest</h1>
+    <p>
+        The team at Kitchens With Zest prides itself on being a dynamic group of experienced, professional and
+        highly qualified individuals. We are truly passionate about design,innovation and technology when it
+        comes to kitchens which is why we stay up to date with all industry trends and fashions so that we
+        can offer you forward thinking advice on both design and products.
+    </p>
+    <p>
+        Because each and every kitchen with us is custom made, our customers have a great deal of input,
+        right down to specific drawer front heights and configurations to suit their own special needs.
+    </p>
+</div>
+
+
+
+<div class="wrapper">
+
+    <!--filter images-->
+    <div class="gallery">
+        <div class="image">
+            <a href="@Url.Action("Contact", "Home")"><span><img src="~/Images/002.jpg" alt="" style="width: 100%;height: 100%;"></span></a>
+            <div class="des">
+                <h1 style="font-size:30px">Request Free Quota</h1>
+            </div>
+        </div>
+        <div class="image">
+            <a href="@Url.Action("Gallery", "Home")"><span><img src="~/Images/003.jpg" alt="" style="width: 100%;height: 100%;"></span></a>
+            <div class="des">
+                <h1 style="font-size:30px">Kitchen Gallery</h1>
+            </div>
+        </div>
+        <div class="image">
+            <a href="@Url.Action("Product", "Home")"><span><img src="~/Images/004.jpg" alt="" style="width: 100%;height: 100%;"></span></a>
+            <div class="des">
+                <h1 style="font-size:30px">Kitchen Products</h1>
+            </div>
+        </div>
+        <div class="image">
+            <a href="@Url.Action("About", "Home")"><span><img src="~/Images/005.jpg" alt="" style="width: 100%;height: 100%;"></span></a>
+            <div class="des">
+                <h1 style="font-size:30px">About Us</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="testimonials">
+    <div class="container3">
+        <div class="title">
+            <h1>My Clients</h1>
+        </div>
+        <div class="slider">
+            <div class="slide active">
+                <p>
+                    I wanted to send you a big thank you for all your hard work and efforts towards creating
+                    our fantastic kitchen.  We are extremely happy with the finished product and I know we will
+                    enjoy it for many years to come.  Please pass on our thanks to the installers and production team
+                    as they bore the brunt of most of the issues that we had to work through.
+                </p>
+                <div class="client-info">
+                    <h3>Gourge Gam</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <p>
+                    I wanted to send you a big thank you for all your hard work and efforts towards creating
+                    our fantastic kitchen.  We are extremely happy with the finished product and I know we will
+                    enjoy it for many years to come.  Please pass on our thanks to the installers and production team
+                    as they bore the brunt of most of the issues that we had to work through.
+                </p>
+                <div class="client-info">
+                    <h3>Pooja Singh</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <p>
+                    I wanted to send you a big thank you for all your hard work and efforts towards creating
+                    our fantastic kitchen.  We are extremely happy with the finished product and I know we will
+                    enjoy it for many years to come.  Please pass on our thanks to the installers and production team
+                    as they bore the brunt of most of the issues that we had to work through.
+                </p>
+                <div class="client-info">
+                    <h3>Rinki Paul</h3>
+                </div>
+            </div>
+        </div>
+        <div class="slider-indicator">
+            <img src="~/Images/client-01.png" alt="img" class="active" data-id="0" />
+            <img src="~/Images/client-02.png" alt="img" data-id="1" />
+            <img src="~/Images/client-03.png" alt="img" data-id="2" />
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelector(".slider").children;
+        const indicatorImages = document.querySelector(".slider-indicator").children;
+
+        for (let i = 0; i < indicatorImages.length; i++) {
+            indicatorImages[i].addEventListener("click", function () {
+
+                for (let j = 0; j < indicatorImages.length; j++) {
+                    indicatorImages[j].classList.remove("active");
+                }
+                this.classList.add("active");
+                const id = this.getAttribute("data-id");
+                for (let j = 0; j < slides.length; j++) {
+                    slides[j].classList.remove("active");
+                }
+
+                slides[id].classList.add("active");
+
+            })
+        }
+
+    </script>
+</div>
+
+<div class="content-2">
+    <div class="article">
+        <h1>Book a Free Consulation</h1>
+        <p>Book a Free design consultation with one of our kitchen consultants today.</p>
+        <div class="button">
+            <a href="@Url.Action("Contact", "Home")">Kitchen Consulation</a>
+        </div>
+    </div>
+    <div class="img-2">
+        <img src="~/Images/about1.jpg">
+    </div>
+</div>

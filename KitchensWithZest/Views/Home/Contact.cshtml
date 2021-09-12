@@ -1,0 +1,117 @@
+﻿@model KitchensWithZest.Models.MessageBox
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+@Styles.Render("~/Content/contact.css")
+<title>contatc us</title>
+@*<style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        #contact-section {
+            background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.9)), url(/Images/contact.jpg);
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+        }
+
+        #contact-section .container h2 {
+                text-align: center;
+                text-decoration: underline;
+                text-underline-position: under;
+                color: rgb(238, 255, 235);
+                letter-spacing: 2px;
+        }
+
+        #contact-section .container p {
+                text-align: center;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 3%;
+                color: #fff;
+                letter-spacing: 3px;
+        }
+
+        .contact-form i.fa {
+            font-size: 22px;
+            padding: 3%;
+            background-color: none;
+            margin: 2%;
+            border-radius: 80%;
+            cursor: pointer;
+            border: 2px solid rgb(190, 190, 190);
+            color: rgb(190, 190, 190);
+        }
+
+        .contact-form i.fa:hover {
+                cursor: pointer;
+                border: 2px solid #fff;
+                color: #fff;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    </style>*@
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- contact section-->
+    <section id="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email us and keep update with our latest news</p>
+            <div class="contact-form">
+                <!-- first grid section-->
+                <div>
+                    <i class="fa fa-map-marker"></i><span class="form-info">16 Manchester St Paraparaumu 5032</span><br>
+                    <i class="fa fa-phone"></i><span class="form-info">Phone no 049029988</span><br>
+                    <i class="fa fa-envelope"></i><span class="form-info">kithenswithzest@outlook.com</span>
+                </div>
+
+                <div class="form">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "", placeholder = @Html.DisplayNameFor(m => m.FirstName), required = "required" } })
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "", placeholder = @Html.DisplayNameFor(m => m.LastName) } })
+
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "", placeholder = @Html.DisplayNameFor(m => m.Phone), required = "required" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "", placeholder = @Html.DisplayNameFor(m => m.Email), required = "required" } })
+                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "", placeholder = @Html.DisplayNameFor(m => m.Subject) } })
+                    @*<textarea name="Message" placeholder="Message" rows="5" required></textarea>*@
+                    @Html.EditorFor(model => model.Content, new { htmlAttributes = new { placeholder = @Html.DisplayNameFor(m => m.Content) } })
+                    @*<button class="submit">Send Message</button>*@
+                    <input type="submit" value="Create">
+                </div>
+
+            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3015.4693545264654!2d175.000288015371!3d-4
+            0.90545367931126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d40a1134c58f683%3A0x2604bb6cab4a03c3!2s16
+            %20Manchester%20Street%2C%20Paraparaumu%205032!5e0!3m2!1sen!2snz!4v1619846016764!5m2!1sen!2s
+            nz" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+    </section>
+
+}
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<KitchensWithZest.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/product1.css")
+
+<div class="content">
+    <div class="title">
+        <h1>Gallery</h1>
+    </div>
+
+
+
+    @foreach (var item in Model)
+    {
+        <div class="responsive">
+            <div class="gallery">
+                <a href="@Url.Action("GalleryDetails", "Home", new { id = item.GalleryId })"><img src="@Url.Content(item.MainPhotoPath)" width="300" height="200" /></a>
+                <div class="des">@Html.DisplayFor(modelItem => item.Description)</div>
+
+
+            </div>
+        </div>
+    }
+
+    <div class="gallery">
+    </div>
+</div>
+
+

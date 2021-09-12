@@ -1,0 +1,81 @@
+﻿@model KitchensWithZest.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    @Styles.Render("~/Content/product1.css")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <style>
+    </style>
+
+</head>
+
+
+
+<body>
+@*<div class="gallery-section">
+
+   <div class="inner-width">
+            <h1>Kitchens with Zest</h1>
+            <div class="border"></div>
+             @foreach (KitchensWithZest.Models.Photo item in ViewBag.Photos)
+            {
+                <div class="gallery">
+                    <a href="@Url.Content(item.PhotoPath)" class="image">
+                        <img src="@Url.Content(item.PhotoPath)" width="300" height="200">
+                    </a>
+                </div>
+
+            }
+     </div>
+
+</div>*@
+
+<div class="content">
+    <div class="title">
+        <h1>Kitchens with Zest</h1>
+    </div>
+
+
+
+    @foreach (KitchensWithZest.Models.Photo item in ViewBag.Photos)
+    {
+        <div class="responsive">
+            <div class="gallery">
+                <a href="@Url.Content(item.PhotoPath)" class="image"><img src="@Url.Content(item.PhotoPath)" width="300" height="200" /></a>
+                
+
+
+            </div>
+        </div>
+    }
+
+    <div class="gallery">
+    </div>
+</div>
+
+
+    <script>
+        $(".gallery").magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+    </script>
+
+
+</body>
+</html>

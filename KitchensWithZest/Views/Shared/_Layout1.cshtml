@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Kitchens With Zest</title>
+    @Styles.Render("~/Content/nav.css")
+    
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="@Url.Action("Index", "Home")"><img src="~/Images/logo.PNG" alt="" style=" height: 90px;"></a>
+        </div>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+        </label>
+
+        <div class="menu">
+            <a href="@Url.Action("Index", "Home")">Home</a>
+            <a href="@Url.Action("About", "Home")">About</a>
+            <a href="@Url.Action("Product", "Home")">Products</a>
+            <a href="@Url.Action("Gallery", "Home")">Gallery</a>
+            <a href="@Url.Action("Contact", "Home")">Contact</a>
+            <a href="@Url.Action("GetStart", "Home")">Get Start</a>
+            <label for="chk" class="hide-menu-btn">
+                <i class="fas fa-times"></i>
+            </label>
+        </div>
+
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+    <div class="footer">
+        <div class="container2">
+            <div class="row">
+                <div class="footer-col">
+                    <h2>Site Map</h2>
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
+                        <li><a href="@Url.Action("About", "Home")">ABOUT</a></li>
+                        <li><a href="@Url.Action("Product", "Home")">PRODUCT</a></li>
+                        <li><a href="@Url.Action("Gallery", "Home")">GARLLEY</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">CONTACT</a></li>
+                        <li><a href="@Url.Action("GetStart", "Home")">GET START</a></li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                    
+                </div>
+                <div class="footer-col">
+                    <h2>Locations</h2>
+                    <p>16 Manchester Street</p>
+                    <p>Paraparaumu 5032</p>
+
+                </div>
+                <div class="footer-col">
+                    <h2>Follow Us</h2>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/Kitchenswithzest"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/explore/tags/kitchenswithzest/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://nz.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
